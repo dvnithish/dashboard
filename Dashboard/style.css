@@ -1,0 +1,31 @@
+.small-width {
+    width: 800px; /* Set the desired width for Row 1 cells */
+}
+
+.reduce-width {
+    width: 20px; /* Set the desired width for Value 1 cells */
+}
+th {
+        /* Adjust the width and height as needed */
+        width: 200px;
+        height: 30px;
+
+        /* Add other desired styles */
+       
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        padding: 2px;
+    }
+    td {
+        /* Adjust the width and height as needed */
+        width: 100px;
+        height: 30px;
+
+        /* Add other desired styles */
+       
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px;
+    }

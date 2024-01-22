@@ -1,0 +1,220 @@
+
+
+body {
+ font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f0f0f0;
+font-size: 20px;
+}
+ .container {
+ width: 1500px;
+ height: 650px;
+ margin: 50px ;
+
+    padding: 20px;
+
+    background-color: #babac0;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(53, 52, 52, 0.2);
+
+    text-align: center;
+
+   
+
+  }
+  .selected {
+    background-color: green;
+  }
+
+ 
+
+ 
+
+ 
+
+  .button {
+
+    display: inline-block;
+
+    height: 100px;
+
+    margin: 5px;
+
+    padding: 10px 15px;
+
+    width: max-content;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #1d20dac0;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+
+    font-size: 20px;
+
+  }
+
+ 
+
+  .button.green-button {
+
+    background-color: green;
+
+  }
+
+ 
+
+  .button:hover {
+
+    background-color: #0b2847;
+
+  }
+
+ 
+
+  .hoverable-button {
+
+    display: inline-block;
+
+    margin: 5px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #1d20dac0;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+
+    font-size: 25px;
+
+  }
+
+ 
+
+  .hoverable-button.green-button {
+
+    background-color: green;
+
+  }
+
+ 
+
+  .hoverable-button:hover {
+
+    background-color: #0b2847;
+
+  }
+
+ 
+
+/* ... existing styles ... */
+
+ 
+
+.barcode-section {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+  }
+
+ 
+
+  .barcode-details {
+
+    margin-top: 10px;
+
+    text-align: left;
+
+  }
+
+ 
+
+  span {
+
+    display: inline-block;
+
+    margin-right: 10px;
+
+}
+
+ 
+
+button{
+
+    size: 50px;
+
+    text-align: center;
+
+}
+
+ 
+
+p{
+
+    display: flex;
+
+    margin-right: 10px;
+
+    font-size: medium;
+
+    text-align: center;  
+
+}
+
+ 
+
+.line-spacing {
+
+    margin-bottom: 20px;
+
+}
+
+.popup {
+
+  position: absolute;
+
+  right: 10px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background-color: #fff;
+
+  border: 1px solid #ccc;
+
+  padding: 10px;
+
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+  display: none;
+
+}
+
+
+
+.popup .checkmark {
+
+  color: green;
+
+  margin-left: 5px;
+
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Refresh</title>
+    <meta http-equiv="refresh" content="5"> <!-- Refresh every 5 seconds -->
+
+    <script>
+        // Function to update the current date and time
+        function updateDateTime() {
+            var currentDateElement = document.getElementById("current-date");
+            var currentTimeElement = document.getElementById("current-time");
+
+            var now = new Date();
+            
+   // Format the date as "DD-MM-YYYY"
+      var formattedDate = now.getDate() + '-' + (now.getMonth() + 1) + '-' + now.getFullYear();
+
+
+            // Format the time as "HH:mm:ss"
+            var formattedTime = now.toLocaleTimeString();
+
+            // Update the content of the elements
+            currentDateElement.textContent = formattedDate;
+            currentTimeElement.textContent = formattedTime;
+        }
+
+        // Call the function to update date and time when the page loads
+        window.onload = updateDateTime;
+
+        // Refresh date and time every second
+        setInterval(updateDateTime, 1000);
+    </script>
+
+ </head>
+<body>
+
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
+    <script src="script4.js"></script>
+    <script src="script5.js"></script>
+    <script src="script6.js"></script>
+    <script src="script7.js"></script>
+    <script src="script8.js"></script>
+    <script src="total1.js"></script>
+    <script src="total2.js"></script>
+    <script src="total3.js"></script>
+    <script src="total4.js"></script>
+    <script src="total5.js"></script>
+    <script src="total6.js"></script>
+    <script src="total7.js"></script>
+    <script src="total8.js"></script>
+
+   <table border="1" align="center">
+    <tr>
+        <th colspan="12" style="font-weight: bolder; font-size: 50px;">Vehicle Hold Dashboard</th>
+    </tr>
+   
+    <tr>
+        <td class="width: 150px;">Date</td>
+        <th colspan="12" id="current-date"></th>
+    </tr>
+    <tr>
+        <td class="width: 150px;">Time</td>
+      <th colspan="12" id="current-time"></th>
+    </tr>
+   
+    <tr>
+        <td class="width: 150px;">SHIFT</td>
+        <th colspan="4">Shift 1</th>
+       <th colspan="4">Shift 2</th>
+      
+    </tr>
+    <tr>
+        <td class="width: 150px;">Time(2 hours once)</td>
+        <td style="width: 50px;">6am-8am</td>
+        <td style="width: 50px;">8am-10am</td>
+       <td style="width: 50px;">10am-12pm</td>
+       <td style="width: 50px;">12pm-14.45pm</td>
+       <td style="width: 50px;">15pm-17pm</td>
+       <td style="width: 50px;">17pm-19pm</td>
+       <td style="width: 50px;">19pm-21pm</td>
+       <td style="width: 50px;">21pm-23.30pm</td>
+     
+   
+    </tr>
+    <tr>
+      
+        <td style="width: 150px;" >AF</td>
+        <td style="width: 50px;" id="1af"></td>
+        <td style="width: 50px;" id="2af"></td></td>
+        <td style="width: 50px;" id="3af"></td>
+        <td style="width: 50px;" id="4af"></td>
+        <td style="width: 50px;" id="5af"></td>
+        <td style="width: 50px;" id="6af"></td>
+        <td style="width: 50px;" id="7af"></td>
+        <td style="width: 50px;" id="8af"></td>
+       
+        
+    </tr>
+    <tr>
+        <th style="width: 50px;">PA</th>
+        <td style="width: 50px;" id="1pa"></td>
+        <td style="width: 50px;" id="2pa"></td></td>
+        <td style="width: 50px;" id="3pa"></td>
+        <td style="width: 50px;" id="4pa"></td>
+        <td style="width: 50px;" id="5pa"></td>
+        <td style="width: 50px;" id="6pa"></td>
+        <td style="width: 50px;" id="7pa"></td>
+        <td style="width: 50px;" id="8pa"></td>
+        
+    
+    </tr>
+    <tr>
+        <th style="width: 50px;">WE1</th>
+        <td style="width: 50px;" id="1we1"></td>
+        <td style="width: 50px;" id="2we1"></td></td>
+        <td style="width: 50px;" id="3we1"></td>
+        <td style="width: 50px;" id="4we1"></td>
+        <td style="width: 50px;" id="5we1"></td>
+        <td style="width: 50px;" id="6we1"></td>
+        <td style="width: 50px;" id="7we1"></td>
+        <td style="width: 50px;" id="8we1"></td>
+      
+       
+    </tr>
+    
+    <tr>
+       
+        <th style="width: 50px;">WE2</th>
+        <td style="width: 50px;" id="1we2"></td>
+        <td style="width: 50px;" id="2we2"></td></td>
+        <td style="width: 50px;" id="3we2"></td>
+        <td style="width: 50px;" id="4we2"></td>
+        <td style="width: 50px;" id="5we2"></td>
+        <td style="width: 50px;" id="6we2"></td>
+        <td style="width: 50px;" id="7we2"></td>
+        <td style="width: 50px;" id="8we2"></td>
+      
+       
+    </tr>
+    <tr>
+       
+       <th style="width: 50px;">PBPQ</th>
+       <td style="width: 50px;" id="1pbpq"></td>
+       <td style="width: 50px;" id="2pbpq"></td></td>
+       <td style="width: 50px;" id="3pbpq"></td>
+       <td style="width: 50px;" id="4pbpq"></td>
+       <td style="width: 50px;" id="5pbpq"></td>
+       <td style="width: 50px;" id="6pbpq"></td>
+       <td style="width: 50px;" id="7pbpq"></td>
+       <td style="width: 50px;" id="8pbpq"></td>
+      
+       
+    </tr>
+   
+    <tr>
+        <td style="width: 50px;">PQ</td>
+        <td style="width: 50px;" id="1pq"></td>
+        <td style="width: 50px;" id="2pq"></td></td>
+        <td style="width: 50px;" id="3pq"></td>
+        <td style="width: 50px;" id="4pq"></td>
+        <td style="width: 50px;" id="5pq"></td>
+        <td style="width: 50px;" id="6pq"></td>
+        <td style="width: 50px;" id="7pq"></td>
+        <td style="width: 50px;" id="8pq"></td>
+      
+      
+    </tr>
+    <tr>
+        <th style="width: 50px;">AE</th>
+        <td style="width: 50px;" id="1ae"></td>
+        <td style="width: 50px;" id="2ae"></td></td>
+        <td style="width: 50px;" id="3ae"></td>
+        <td style="width: 50px;" id="4ae"></td>
+        <td style="width: 50px;" id="5ae"></td>
+        <td style="width: 50px;" id="6ae"></td>
+        <td style="width: 50px;" id="7ae"></td>
+        <td style="width: 50px;" id="8ae"></td>
+       
+       
+    </tr>
+    <tr>
+        <th style="width: 50px;">Other</th>
+        <td style="width: 50px;" id="1other"></td>
+        <td style="width: 50px;" id="2other"></td></td>
+        <td style="width: 50px;" id="3other"></td>
+        <td style="width: 50px;" id="4other"></td>
+        <td style="width: 50px;" id="5other"></td>
+        <td style="width: 50px;" id="6other"></td>
+        <td style="width: 50px;" id="7other"></td>
+        <td style="width: 50px;" id="8other"></td>
+    
+      
+    </tr>
+   <tr>
+    <th style="width: 50px;">Total</th>
+    <td style="width: 50px;" id="1total" ></td>
+    <td style="width: 50px;" id="2total"></td>
+    <td style="width: 50px;" id="3total"></td>
+    <td style="width: 50px;" id="4total"></td>
+    <td style="width: 50px;" id="5total"></td>
+    <td style="width: 50px;" id="6total"></td>
+    <td style="width: 50px;" id="7total"></td>
+    <td style="width: 50px;" id="8total"></td>
+   
+   </tr>
+</table> 
+
+
+
+</body>
+</html>

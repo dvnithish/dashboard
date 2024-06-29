@@ -1,347 +1,897 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
-  <style>
-    .button {
-      width: 130px;
-      font-weight: bolder;
-      font-size: 25px;
-    }
-  
-    .selected {
-      background-color: green;
-    }
-  </style>
-  
-   <div>
-    <div>
-      <div class="container">
-        <h1 style="font-size: 55px">VEHICLE DASHBOARD DISPLAY</h1>
-        <button style="width: 500px; font-size:50px; height: 150px; font-weight:bolder; "class="button defect" data-value="Vehicle NG" onclick="handleButtonClick(this, 'Vehicle NG', 'defect')">Vehicle NG</button>
-        <button style="width: 500px; font-size:50px; height: 150px; font-weight:bolder; "class="button defect" data-value="Vehicle OK" onclick="handleButtonClick(this, 'Vehicle OK', 'defect')">Vehicle OK</button>
-      <br>
-      <br>
-      <div>
-        <button style="width: 240px; font-size:40px; height: 130px; font-weight:bolder; "class="button linenumber" data-value="line 1" onclick="handleButtonClick(this, 'line 1', 'linenumber')">Line 1</button>
-        <button style="width: 240px; font-size:40px; height: 130px; font-weight:bolder; "class="button linenumber" data-value="line 2" onclick="handleButtonClick(this, 'line 2', 'linenumber')">Line 2</button>
-        <button style="width: 240px; font-size:40px; height: 130px; font-weight:bolder; "class="button linenumber" data-value="line 3" onclick="handleButtonClick(this, 'line 3', 'linenumber')">Line 3</button>
-        <button style="width: 240px; font-size:40px; height: 130px; font-weight:bolder; "class="button linenumber" data-value="line 4" onclick="handleButtonClick(this, 'line 4', 'linenumber')">Line 4</button>
-      </div>
-      <br>
-      <div>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="AF" onclick="handleButtonClick(this, 'AF', 'department')">AF</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="PA" onclick="handleButtonClick(this, 'PA', 'department')">PA</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="WE1" onclick="handleButtonClick(this, 'WE1', 'department')">WE1</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="WE2" onclick="handleButtonClick(this, 'WE2', 'department')">WE2</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="PBPQ" onclick="handleButtonClick(this, 'PBPQ', 'department')">PBPQ</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="PQ" onclick="handleButtonClick(this, 'PQ', 'department')">PQ</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="AE" onclick="handleButtonClick(this, 'AE', 'department')">AE</button>
-        <button style="width: 115px; font-size:30px; height: 130px; font-weight:bolder; "class="button department" data-value="OTHER" onclick="handleButtonClick(this, 'OTHER', 'department')">OTHER</button>
-      </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibrugarh Decoration Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .nav-links .dropdown {
+            position: relative;
+        }
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            padding: 10px;
+        }
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-links .dropdown-content a {
+            color: black;
+        }
+        .book-now {
+            background-color: #4B0082;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .top-banner {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .top-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        .locations {
+            text-align: center;
+            padding: 20px;
+        }
+        .why {
+            text-align: center;
+            
+        }
+        .locations h2 {
+            margin-bottom: 20px;
+        }
+        .location-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .location-card {
+            position: relative;
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .location-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .location-card .location-info {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: left;
+            padding: 10px;
+        }
+        .location-card .location-info h3 {
+            margin: 0;
+        }
+        .location-card .location-info a {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .sublocations {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .sublocations.active {
+            display: block;
+        }
+        .sublocations li {
+            background-color: white;
+            margin: 5px 0;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sublocations li a {
+            color: #4B0082;
+            text-decoration: none;
+        }
+        .why-choose-us,
+        .how-it-works {
+            text-align: center;
+            padding: 20px;
+        }
+        .why-choose-us {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-images {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 25s infinite;
+        }
+        .carousel-images img {
+            width: 20%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); }
+            100% { transform: translateX(-100%); }
+        }
+        .why-choose-us h2,
+        .how-it-works h2 {
+            margin-top: 0;
+        }
+        .why-choose-us .content,
+        .how-it-works .content {
+            margin: 20px 0;
+        }
+        .carousel-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+        }
+        .services {
+            padding: 20px;
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 20px;
+        }
+        .services-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .service-card {
+            position: relative;
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background: white;
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .service-card .label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        .service-card h3 {
+            margin: 10px 0;
+        }
+        .service-card p {
+            margin: 0 10px 10px;
+        }
+        .all-services {
+            display: block;
+            text-align: right;
+            margin: 20px 0;
+        }
+        .all-services a {
+            color: #4B0082;
+            text-decoration: none;
+        }
+        .instagram-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .instagram-section h2 {
+            margin-bottom: 20px;
+        }
+        .instagram-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .instagram-images img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+          /* Footer Styles */
+          .footer {
+            background-color: #f5ecd6;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+        .footer .logo img {
+            width: 150px;
+        }
+        .footer .company,
+        .footer .reach-us,
+        .footer .social-media {
+            text-align: left;
+        }
+        .footer .company a,
+        .footer .reach-us a,
+        .footer .social-media a {
+            color: black;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+        .footer .social-media a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .footer-bottom {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+        .footer-bottom a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo img {
+            height: 50px;
+        }
+        .header-logo .text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4B0082;
+            margin-left: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .nav-links .dropdown {
+            position: relative;
+        }
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            padding: 10px;
+        }
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-links .dropdown-content a {
+            color: black;
+        }
+        .book-now {
+            background-color: #4B0082;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .top-banner {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .top-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .locations {
+            text-align: center;
+            padding: 20px;
+        }
+        .why {
+            text-align: center;
+            
+        }
+        .locations h2 {
+            margin-bottom: 20px;
+        }
+        .location-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .location-card {
+            position: relative;
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .location-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .location-card .location-info {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: left;
+            padding: 10px;
+        }
+        .location-card .location-info h3 {
+            margin: 0;
+        }
+        .location-card .location-info a {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .sublocations {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .sublocations.active {
+            display: block;
+        }
+        .sublocations li {
+            background-color: white;
+            margin: 5px 0;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sublocations li a {
+            color: #4B0082;
+            text-decoration: none;
+        }
+        .why-choose-us,
+        .how-it-works {
+            text-align: center;
+            padding: 20px;
+        }
+        .why-choose-us {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-images {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 25s infinite;
+        }
+        .carousel-images img {
+            width: 20%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); }
+            100% { transform: translateX(-100%); }
+        }
+        .why-choose-us h2,
+        .how-it-works h2 {
+            margin-top: 0;
+        }
+        .why-choose-us .content,
+        .how-it-works .content {
+            margin: 20px 0;
+        }
+        .carousel-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+        }
+        .services {
+            padding: 20px;
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 20px;
+        }
+        .services-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .service-card {
+            position: relative;
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background: white;
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .service-card .label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        .service-card h3 {
+            margin: 10px 0;
+        }
+        .service-card p {
+            margin: 0 10px 10px;
+        }
+        .all-services {
+            display: block;
+            text-align: right;
+            margin: 20px 0;
+        }
+        .all-services a {
+            color: #4B0082;
+            text-decoration: none;
+        }
+        .instagram-section {
+            padding: 20px;
+            text-align: center;
+        }
+        .instagram-section h2 {
+            margin-bottom: 20px;
+        }
+        .instagram-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .instagram-images img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+          /* Footer Styles */
+          .footer {
+            background-color: #f5ecd6;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+        .footer .logo img {
+            width: 150px;
+        }
+        .footer .company,
+        .footer .reach-us,
+        .footer .social-media {
+            text-align: left;
+        }
+        .footer .company a,
+        .footer .reach-us a,
+        .footer .social-media a {
+            color: black;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+        .footer .social-media a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .footer-bottom {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+        .footer-bottom a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-media a {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.social-media a i {
+    margin-right: 10px;
+}
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .nav-links .dropdown {
+            position: relative;
+        }
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            padding: 10px;
+        }
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-links .dropdown-content a {
+            color: black;
+        }
+        .book-now {
+            background-color: #4B0082;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0;
+        }
+        .book-nowunder{
+            background-color: #4B0082;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .top-banner {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .top-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Additional CSS */
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo img {
+            height: 50px;
+        }
+        .header-logo .text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4B0082;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">
+            <img src="images/DDH logo.png" alt="Logo">
+            <div class="text"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">My Bookings</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="#">Learn</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </li>
+        </ul>
+        <button class="book-now">Book Now</button>
+    </div>
+
+    <div class="top-banner">
+        <img src="images/home.png" alt="Top Banner">
+    </div>
+
+    <div class="locations">
+        <h2>Find us in your town</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="images/assam.png" alt="Bangalore">
+                <div class="location-info">
+                    <h3>Assam</h3>
+                    <a href="#" onclick="showSublocations(event, 'bangalore-sublocations')">View locations</a>
+                </div>
+                <ul id="bangalore-sublocations" class="sublocations">
+                    <li><a href="#">Dibrugarh</a> <span>&#9656;</span></li>
+                    <li><a href="#">Jorhat</a> <span>&#9656;</span></li>
+                    <li><a href="#">Bongaigaon</a> <span>&#9656;</span></li>
+                    <li><a href="#">Digboi</a> <span>&#9656;</span></li>
+                    <li><a href="#">Tinsukia</a> <span>&#9656;</span></li>
+                </ul>
+            </div>
+            
+
+
+           
+        </div>
+    </div>
+
+    <div class="why">
+        <h2>Why Choose Us</h2>
+        
+    </div>
+
+    <div class="why-choose-us">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="images/img5.jpg" alt="Why Choose Us Image 1">
+                <img src="images/banner1.jpg" alt="Why Choose Us Image 2">
+                <img src="images/img2.jpg" alt="Why Choose Us Image 3">
+                <img src="images/home.png" alt="Why Choose Us Image 5">
+            </div>
+            <div class="carousel-content">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="how-it-works">
+        
+        <div class="content">
+            <p>Birthday Bliss, Anniversary Extravaganza and much more!</p>
+            <p>The best place to celebrate birthdays and anniversaries with a cinematic twist. Our private theatres in Assam provide the ideal setting for a unique and personalized celebration. From themed balloon decorations to surprise elements, we've got your special day covered!</p>
+            <button class="book-nowunder">Book Now</button>
+        </div>
+    </div>
+
+
+<div class="how-it-works">
+    <h2>How does Private Theater Celebration work?</h2>
+    <div class="content">
+        <h2>How It Works</h2>
+        <p>Private Theatre celebration is a very new concept pioneered by The Binge Town. Guests can book private theatres for celebrating birthdays, anniversaries, date night, bride to be, etc and enjoy watching their favorite movies, shows, photos and videos on the big screen. Guests can also enjoy delicious food and beverages, and add other services like Cakes, Gifts, Photoshoot, etc. The Binge Town private theatres make celebrations easy, affordable, fun and memorable.</p>
+        <button class="book-nowunder">Book Now</button>
     </div>
 </div>
 
-</style>
-<script>
-var selectedDefect = "";
-var selectedLine = "";
-var selectedDepartment = "";
+<div class="services">
+    <h2>Our Services</h2>
+    <div class="services-cards">
+        <div class="service-card">
+            <img src="images/FogEntry.png" alt="Service 1">
+            <div class="label">Popular</div>
+            <h3>Fog</h3>
+            <p> Transform your event into a dreamlike atmosphere with our enchanting fog service. Our professional-grade fog machines create a magical ambiance, adding depth and mystery to any space.</p>
+        </div>
+        <div class="service-card">
+            <img src="images/Gift.jpg" alt="Service 2">
+            <h3>Gift service</h3>
+            <p>Explore our tailored Gift Service designed to meet your specific needs. Whether it's personalized items, themed arrangements, or bespoke gift sets, we ensure each gift reflects your intentions perfectly. With meticulous attention to detail, including exquisite wrapping and prompt delivery, we guarantee a seamless and delightful gifting experience.</p>
+        </div>
+        <div class="service-card">
+            <img src="images/Cake.jpg" alt="Service 3">
+            <h3>Cake </h3>
+            <p>Elevate your celebrations with our comprehensive decoration services, complemented by our expert Cake Service. Whether it's a birthday, or special event, indulge in our delicious and beautifully crafted cakes that add sweetness to every occasion. Enjoy seamless coordination and exceptional quality, ensuring your event is both visually stunning and delightfully delicious."
 
-function updateResults() {
-  document.getElementById("defect").textContent = selectedDefect;
-  document.getElementById("linenumber").textContent = selectedLine;
-  document.getElementById("department").textContent = selectedDepartment;
-}
 
-function handleButtonClick(button, value, type) {
-  if (type === "defect") {
-    selectedDefect = selectedDefect === value ? "" : value;
-  } else if (type === "linenumber") {
-    selectedLine = selectedLine === value ? "" : value;
-  } else if (type === "department") {
-    selectedDepartment = selectedDepartment === value ? "" : value;
-  }
 
-  updateResults();
-  updateButtonStyles(type);
-  moveSelectedButton(button, value, type);
-}
+            </p>
+        </div>
+        <div class="service-card">
+            <img src="images/Photoshoot.jpg" alt="Service 4">
+            <h3>Photoshoot</h3>
+            <p>Enhance your event with our all-inclusive decoration services, including our expert Cake Service and Photoshoot Service. From stunning decor setups to delectable cakes and professional photography, we ensure every moment is captured beautifully. Trust us to transform your occasion into cherished memories with our seamless coordination and exceptional service."
 
-function updateButtonStyles(type) {
-  var buttons = document.querySelectorAll("." + type);
 
-  buttons.forEach(function(button) {
-    if (
-     
-        (button.getAttribute("data-value") === selectedDefect ||button.getAttribute("data-value") === selectedLine ||
-          button.getAttribute("data-value") === selectedDepartment)
-    ) {
-      button.classList.add("green-button");
-    } else {
-      button.classList.remove("green-button");
-    }
-  });
-}
 
-function moveSelectedButton(button, value, type) {
-  const container2 = document.getElementById("container2");
-  const newButton = document.createElement("button");
-  newButton.className = "button " + type;
-  newButton.setAttribute("data-value", value);
-  newButton.textContent = value;
-  container2.appendChild(newButton);
-}
-
- 
-
-function updateTimeAndDate() {
-  var now = new Date();
-  currentDate = now.toDateString();
-  currentTime = now.toLocaleTimeString();
-
- 
-
-  updateResults();
-}
-
- 
-
-// Call updateTimeAndDate function initially and every second
-updateTimeAndDate();
-setInterval(updateTimeAndDate, 1000);
-</script>
-
-<div class="container">
-    <br>
-    
-  <label for="inputValue"></label>
-  <input style="height: 50px; width: 1000px;"type="text" id="inputValue" autofocus placeholder="Click Scan Box">
-  <button style="font-weight: bold; height: 50px; width: 50;" onclick="recordValue() ">OK</button> 
-  
-  
-  <div id="selectedButtons"></div>
-  <br>
-  <p style="width: 30px; font-size: 50px; font-weight: bold;">FrameNo:<span id="vehicleno"></span></p>
-  <p style="width: 250px; font-size: 20px; font-weight: bold;"> Date : <span id="date"></span></p>
-  <p style="width: 200px;font-size: 20px; font-weight: bold;"> Time : <span id="time"></span></p>
-  <p style="width: 200px;font-size: 20px; font-weight: bold;"> Count No : <span id="countno">0</span></p>
-  <p style="width: 200px;font-size: 20px; font-weight: bold;"> defect: <span id="defect"></span></p>
-<p style="width: 200px;font-size: 20px; font-weight: bold;"> line: <span id="linenumber"></span></p>
-<p style="width: 200px;font-size: 20px; font-weight: bold;"> department: <span id="department"></span></p>
-  
-  <p style="font-size: 20px; font-weight: bold;">Plant :-<span id="plant"> &nbsp;3F HMSI Narasapura</span></p>
- <!-- <p style="font-size: 15px;">Factory :-<span id="factory"> &nbsp;HMSI</span></p> -->
-  <ul id="scannedList"></ul>
-<br>
-  <button style="font-weight: bold; height: 50px; width: 500px;" type="button" onclick="displayvalue()" id="submitButton" > Submit</button>
-  </div>
-  <div class="popup" id="popupMessage">
-
-    Submitted successfully! <span class="checkmark">&#10004;</span>
-
+            </p>
+        </div>
+    </div>
+    <div class="all-services">
+        <a href="#">View All Services</a>
+    </div>
 </div>
-<script>
-          const form = document.getElementById('myForm');
-
-const popup = document.getElementById('popupMessage');
-
-
-form.addEventListener('submit', function(event) {
-
-    event.preventDefault(); // Prevent actual form submission
-
-
-
-    // Show the popup message
-
-    popup.style.display = 'block';
-
-
-
-    // Hide the popup message after a few seconds
-
-    setTimeout(function() {
-
-        popup.style.display = 'none';
-
-    }, 3000); // 3000 milliseconds = 3 seconds
-
-});
-</script>
-  <script>
-    
-    // Your existing JavaScript functions
-
-    // Function to handle form submission
-    document.getElementById("submitButton").addEventListener("click", function() {
-      const vehicleno = document.getElementById('vehicleno').textContent;
-      const time = document.getElementById('time').textContent;
-      const date = document.getElementById('date').textContent;
-      const count = document.getElementById('countno').textContent; // Corrected from 'count'
-      const linenumber = document.getElementById('linenumber').textContent;
-      const department = document.getElementById('department').textContent;
-     const factory = document.getElementById('plant').textContent; // Corrected from 'factory'
-
-      const formData = {
-        vehicleno: vehicleno,
-        time: time,
-        date: date,
-        count: count,
-        linenumber: linenumber,
-        department: department,
-        factory: factory
-      };
-
-      
-      fetch('http://192.168.0.116:8080/honda/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Data saved successfully:', data);
-      })
-      .catch(error => {
-        console.error('Error saving data:', error);
-      });
-    });
- 
-    const scannedNumbers = {}; // Object to store scanned numbers and their occurrences
-
-function updateCount() {
-  const countElement = document.getElementById('countno');
-  const count = Object.values(scannedNumbers).reduce((total, count) => total + count, 0);
-  countElement.textContent = count;
-}
-
-function recordValue() {
-  const inputValue = document.getElementById('inputValue').value;
-
-  if (inputValue.trim() !== '') {
-    const enteredValueElement = document.getElementById('vehicleno');
-    const dateElement = document.getElementById('date');
-    const timeElement = document.getElementById('time');
-    const now = new Date();
-
-    const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-
-    // Convert to 24-hour format
-    const formattedHours = hours.toString().padStart(2, '0');
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-
-    // Determine the time of day (am or pm)
-    const timeOfDay = hours >= 12 ? 'pm' : 'am';
-
-    const formattedTime = `${formattedHours}:${formattedMinutes}${timeOfDay}`;
-
-    enteredValueElement.textContent = inputValue;
-    dateElement.textContent = formattedDate;
-    timeElement.textContent = formattedTime;
-
-    if (scannedNumbers[inputValue] === undefined) {
-      scannedNumbers[inputValue] = 1;
-    } else {
-      scannedNumbers[inputValue]--;
-
-      if (scannedNumbers[inputValue] === 0) {
-        delete scannedNumbers[inputValue];
-      }
-    }
-
-    updateCount();
-    document.getElementById('inputValue').value = '';
-  }
-}
-
-setTimeout(simulateBarcodeScan, 3000);
-
- </script>
- <h1 class="text-center"></h1>
- <div class="container">
-  <table class="table table-bordered">
-         <thead class="table-dark">
-           <tr>
-             
-             <th scope="col">Factory</th>
-             <th scope="col">Line No</th>
-             <th scope="col">Department</th>
-             <th scope="col">Vehicle No</th>
-             <th scope="col">Time</th>
-             <th scope="col">Date</th>
-             <th scope="col">Count No</th>
-            
-             
-             
-           </tr>
-         </thead>
-         <tbody id="table_body">
-          
-          
-         </tbody>
-       </table>
-     </div>
-     <link rel="stylesheet" type="text/css" href="style.css" />
-    
-   
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width,
-      initial-scale=1.0">
-      <title>Api data</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script>
-        fetch("http://192.168.0.116:8080/honda/come", {
-  method: "GET"
-  })
-  .then((response) => response.json())
-  .then((data) => {
-  console.log(data[0].title);
-  let tableData = "";
-  data.forEach((values) => {
-    tableData += `
-      <tr>
-        <td>${values.factory}</td>
-        <td>${values.linenumber}</td>
-        <td>${values.department}</td>
-        <td>${values.vehicleno}</td>
-        <td>${values.time}</td>
-        <td>${values.date}</td>
-        <td>${values.count}</td>
-         </tr>`;
-  });
-  document.getElementById("table_body").innerHTML = tableData;
-  })
-  .catch((error) => {
-  console.log("Error:", error);
-  });
-  
-  const express = require('express');
-  const app = express();
-  
-  
-  
-  // Your routes and server logic here
-  
-  app.listen(9023, () => {
-  console.log('Server is running on port 9023');
-  });
-  
-      </script>
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Auto Refresh</title>
-      <meta http-equiv="refresh" content="20"> <!-- Refresh every 20 seconds -->>
-</head>
-<body>
+<div class="instagram-section">
+    <h2>Follow Us on Instagram</h2>
+    <div class="instagram-images">
+        <img src="images/Screenshot 2024-06-29 190227.png" alt="Instagram 1">
+        <img src="images/Screenshot 2024-06-29 193231.png" alt="Instagram 2">
+        <img src="images/Screenshot 2024-06-29 193307.png" alt="Instagram 3">
+        <img src="Screenshot 2024-06-29 193245.png" alt="Instagram 4">
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-content">
+        <div class="logo">
+            <img src="images/DDH logo.png" alt="Logo">
+        </div>
+        <div class="company">
+            <h3>Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+        </div>
+        <div class="reach-us">
+            <h3>Reach Us</h3>
+            <a href="#">Contact Us (9864865614) </a>
+            <a href="#">Support</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="#">Instagram - Dibrugarh Decoration Hub</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Dibrugarh Decoration Hub. All rights reserved. <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+    </div>
+</div>
 
 
+
+    <script>
+        function showSublocations(event, id) {
+            event.preventDefault();
+            var sublocationList = document.getElementById(id);
+            sublocationList.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
